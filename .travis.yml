@@ -1,0 +1,18 @@
+language: c
+before_script:
+    - ./.travis/install-rust.sh
+    - ./.travis/install-go.sh
+    - export PATH=$HOME/vendor/rust/bin:$HOME/vendor/go/bin:$PATH
+    - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/vendor/rust/lib
+    - export GOROOT=$HOME/vendor/go
+    - unset GOPATH
+cache:
+    directories:
+        - $HOME/vendor
+
+env:
+    - TARGET=go
+    - TARGET=rust
+
+script:
+    - make $TARGET
