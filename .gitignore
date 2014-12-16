@@ -1,4 +1,15 @@
+# misc crap
 *.sw[po]
-*.py[co]
 .DS_Store
 Thumbs.db
+
+# compiled files
+*.py[co]
+*.o
+*.so
+*.rlib
+*.dll
+*.exe
+
+# rust
+rust/target
