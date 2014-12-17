@@ -1,6 +1,7 @@
-package cryptopals
+package tests
 
 import (
+	"../cryptopals"
 	"testing"
 )
 
@@ -18,7 +19,7 @@ func TestFixedXOR(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		got, err := FixedXORString(tt.a, tt.b)
+		got, err := cryptopals.FixedXORString(tt.a, tt.b)
 		if err != nil {
 			t.Errorf("got err %v", err)
 		}
