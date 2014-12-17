@@ -1,14 +1,19 @@
 language: c
-before_script:
-    - ./.travis/install-rust.sh
-    - ./.travis/install-go.sh
-    - export PATH=$HOME/vendor/rust/bin:$HOME/vendor/go/bin:$PATH
-    - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/vendor/rust/lib
-    - export GOROOT=$HOME/vendor/go
-    - unset GOPATH
+sudo: false
+
 cache:
     directories:
         - $HOME/vendor
+
+install:
+    - ./.travis/install-rust.sh
+    - ./.travis/install-go.sh
+
+before_script:
+    - export PATH=$HOME/vendor/rust/bin:$HOME/vendor/go/bin:$PATH
+    - export LD_LIBRARY_PATH=$HOME/vendor/rust/lib:$LD_LIBRARY_PATH
+    - export GOROOT=$HOME/vendor/go
+    - unset GOPATH
 
 env:
     - TARGET=go
