@@ -1,7 +1,5 @@
-extern crate serialize;
-
-use self::serialize::hex::FromHex;
-use self::serialize::base64::{ToBase64, STANDARD};
+use serialize::hex::FromHex;
+use serialize::base64::{ToBase64, STANDARD};
 
 
 pub fn hex_to_base64(hex: &str) -> String {
